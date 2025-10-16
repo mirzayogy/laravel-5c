@@ -40,3 +40,18 @@ php artisan migrate:fresh --seed // mau dari awal
 -- Buat controller
 php artisan make:controller MatakuliahController //ini kosongan
 php artisan make:controller MatakuliahController --resource // ini ada isinya
+
+-- routes/web.php
+Route::get('/matakuliah', [MatakuliahController::class, 'index']);
+
+-- MatakuliahController
+public function index()
+{
+    $banyak_matakuliah = Matakuliah::all();
+    // dd($banyak_matakuliah); // untuk melihat isi datanya
+    return view('matakuliah.index',
+        [
+            'banyak_matakuliah' => $banyak_matakuliah
+        ]
+    );
+}
