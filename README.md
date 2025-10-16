@@ -37,3 +37,6 @@ php artisan db:seed --class=MatakuliahSeeder // kita yang tentukan
 php artisan migrate:fresh --seed // mau dari awal
 
 =======================================================
+-- Buat controller
+php artisan make:controller MatakuliahController //ini kosongan
+php artisan make:controller MatakuliahController --resource // ini ada isinya
