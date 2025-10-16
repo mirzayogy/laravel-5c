@@ -19,6 +19,7 @@ php artisan make:model Matakuliah
 protected $table = "matakuliah";
 protected $guarded = [];
 
+// optional: kalo mau datanya sudah terisi
 php artisan make:seeder MatakuliahSeeder
 
 Matakuliah::create([
