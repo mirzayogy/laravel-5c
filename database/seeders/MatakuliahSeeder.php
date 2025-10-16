@@ -1,0 +1,32 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Matakuliah;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+class MatakuliahSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        Matakuliah::create([
+            'kode_mk' => "ABC123",
+            'nama' => 'Tuwaga',
+            'jumlah_sks' => 3,
+            'semester' => 5,
+            'prodi_id' => 1,
+        ]);
+
+        Matakuliah::create([
+            'kode_mk' => "ABC124",
+            'nama' => 'Tuwampat',
+            'jumlah_sks' => 2,
+            'semester' => 6,
+            'prodi_id' => 1,
+        ]);
+    }
+}
