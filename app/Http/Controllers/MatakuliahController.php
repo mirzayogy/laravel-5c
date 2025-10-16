@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Matakuliah;
 use Illuminate\Http\Request;
 
 class MatakuliahController extends Controller
@@ -11,7 +12,13 @@ class MatakuliahController extends Controller
      */
     public function index()
     {
-        //
+        $banyak_matakuliah = Matakuliah::all();
+        // dd($banyak_matakuliah); // untuk melihat datanya
+        return view('matakuliah.index',
+            [
+                'banyak_matakuliah' => $banyak_matakuliah
+            ]
+        );
     }
 
     /**
