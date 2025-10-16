@@ -21,6 +21,19 @@ protected $guarded = [];
 
 php artisan make:seeder MatakuliahSeeder
 
+Matakuliah::create([
+    'kode_mk' => "ABC123",
+    'nama' => 'Tuwaga',
+    'jumlah_sks' => 3,
+    'semester' => 5,
+    'prodi_id' => 1,
+]);
+
 $this->call(MatakuliahSeeder::class);
 
-php artisan migrate:fresh --seed
+-- Pilihan: Terminal/Command Prompt
+php artisan db:seed // mau lanjutan
+php artisan db:seed --class=MatakuliahSeeder // kita yang tentukan
+php artisan migrate:fresh --seed // mau dari awal
+
+=======================================================
