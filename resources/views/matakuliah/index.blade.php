@@ -28,17 +28,23 @@
 <body>
     <h1>Matakuliah</h1>
     {{-- {{ dd($banyak_matakuliah) }} --}}
+    <a href="{{ route('matakuliah.create') }}">Tambah</a>
     <table>
         <tr>
             <th>ID</th>
             <th>Kode MK</th>
             <th>Nama</th>
+            <th>Opsi</th>
         </tr>
         @foreach ($banyak_matakuliah as $matakuliah)
             <tr>
                 <td>{{ $matakuliah['id'] }}</td>
                 <td>{{ $matakuliah['kode_mk'] }}</td>
                 <td>{{ $matakuliah['nama'] }}</td>
+                <td>
+                    <a href="#">Ubah</a>
+                    <a href="#">Hapus</a>
+                </td>
             </tr>
         @endforeach
     </table>

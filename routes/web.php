@@ -16,4 +16,5 @@ Route::get('/coba', function () {
 //     return view('matakuliah.index');
 // });
 
-Route::get('/matakuliah', [MatakuliahController::class, 'index']);
+// Route::get('/matakuliah', [MatakuliahController::class, 'index']);
+Route::resource('matakuliah', MatakuliahController::class);
