@@ -48,11 +48,22 @@
                 <td>{{ $matakuliah['nama'] }}</td>
                 <td>
                     <a href="{{ route('matakuliah.edit', $matakuliah) }}">Ubah</a>
-                    <a href="#">Hapus</a>
+                    <a href="#" onclick="konfirmasi('{{ route('matakuliah.destroy', $matakuliah) }}')">Hapus</a>
                 </td>
             </tr>
         @endforeach
     </table>
+    <form action="" method="POST" id="deleteForm">
+        @csrf
+        @method('DELETE')
+    </form>
 </body>
-
+<script>
+    function konfirmasi(href){
+        if(confirm('Apakah yakin?')){
+            document.getElementById('deleteForm').action = href
+            document.getElementById('deleteForm').submit()
+        }
+    }
+</script>
 </html>

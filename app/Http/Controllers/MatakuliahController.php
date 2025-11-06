@@ -46,7 +46,7 @@ class MatakuliahController extends Controller
         Matakuliah::create($data_tervalidasi);
 
         return redirect("/matakuliah")
-            ->with("berhasil", "Berhasil simpan data baru");
+            ->with("berhasil", "Berhasil simpan data BARU");
     }
 
     /**
@@ -92,14 +92,16 @@ class MatakuliahController extends Controller
         ]);
 
         return redirect("/matakuliah")
-            ->with("berhasil", "Berhasil simpan ubah data");
+            ->with("berhasil", "Berhasil simpan UBAH data");
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Matakuliah $matakuliah)
     {
-        //
+        $matakuliah->delete();
+        return redirect("/matakuliah")
+            ->with("berhasil", "Berhasil HAPUS data");
     }
 }
