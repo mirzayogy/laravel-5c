@@ -47,7 +47,7 @@
                 <td>{{ $matakuliah['kode_mk'] }}</td>
                 <td>{{ $matakuliah['nama'] }}</td>
                 <td>
-                    <a href="#">Ubah</a>
+                    <a href="{{ route('matakuliah.edit', $matakuliah) }}">Ubah</a>
                     <a href="#">Hapus</a>
                 </td>
             </tr>
