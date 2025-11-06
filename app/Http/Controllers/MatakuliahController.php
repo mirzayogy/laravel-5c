@@ -14,7 +14,8 @@ class MatakuliahController extends Controller
     {
         $banyak_matakuliah = Matakuliah::all();
         // dd($banyak_matakuliah); // untuk melihat datanya
-        return view('matakuliah.index',
+        return view(
+            'matakuliah.index',
             [
                 'banyak_matakuliah' => $banyak_matakuliah
             ]
@@ -34,7 +35,18 @@ class MatakuliahController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $data_tervalidasi = $request->validate([
+            "kode_mk" => "required|unique:matakuliah",
+            "nama" => "required",
+            "jumlah_sks" => "required",
+            "semester" => "required",
+            "prodi_id" => "required",
+        ]);
+
+        Matakuliah::create($data_tervalidasi);
+
+        return redirect("/matakuliah")
+                ->with("berhasil","Berhasil simpan data baru");
     }
 
     /**

@@ -28,6 +28,11 @@
 <body>
     <h1>Matakuliah</h1>
     {{-- {{ dd($banyak_matakuliah) }} --}}
+    @if(session('berhasil'))
+        <br>
+        {{ session('berhasil') }}
+        <br>
+    @endif
     <a href="{{ route('matakuliah.create') }}">Tambah</a>
     <table>
         <tr>
