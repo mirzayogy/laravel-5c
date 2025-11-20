@@ -18,3 +18,11 @@ Route::get('/coba', function () {
 
 // Route::get('/matakuliah', [MatakuliahController::class, 'index']);
 Route::resource('matakuliah', MatakuliahController::class);
+
+Route::get('/dosen', function () {
+    return view('dosen.index');
+});
+
+Route::get('/mahasiswa', function () {
+    return view('mahasiswa.index');
+});
