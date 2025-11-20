@@ -1,69 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        td,
-        th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
-</head>
-<body>
-    <h1>Matakuliah</h1>
+@extends('template.default')
+@section('content')
+    <h1 class="h3 mb-4 text-gray-800">Matakuliah</h1>
     {{-- {{ dd($banyak_matakuliah) }} --}}
-    @if(session('berhasil'))
+    @if (session('berhasil'))
         <br>
         {{ session('berhasil') }}
         <br>
     @endif
-    <a href="{{ route('matakuliah.create') }}">Tambah</a>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Kode MK</th>
-            <th>Nama</th>
-            <th>Opsi</th>
-        </tr>
-        @foreach ($banyak_matakuliah as $matakuliah)
-            <tr>
-                <td>{{ $matakuliah['id'] }}</td>
-                <td>{{ $matakuliah['kode_mk'] }}</td>
-                <td>{{ $matakuliah['nama'] }}</td>
-                <td>
-                    <a href="{{ route('matakuliah.edit', $matakuliah) }}">Ubah</a>
-                    <a href="#" onclick="konfirmasi('{{ route('matakuliah.destroy', $matakuliah) }}')">Hapus</a>
-                </td>
-            </tr>
-        @endforeach
-    </table>
+    <div class="card shadow mb-4">
+        <a href="{{ route('matakuliah.create') }}" class="btn btn-success">Tambah</a>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <tr>
+                    <th>ID</th>
+                    <th>Kode MK</th>
+                    <th>Nama</th>
+                    <th>Opsi</th>
+                </tr>
+                @foreach ($banyak_matakuliah as $matakuliah)
+                    <tr>
+                        <td>{{ $matakuliah['id'] }}</td>
+                        <td>{{ $matakuliah['kode_mk'] }}</td>
+                        <td>{{ $matakuliah['nama'] }}</td>
+                        <td>
+                            <a href="{{ route('matakuliah.edit', $matakuliah) }}" class="btn btn-primary">Ubah</a>
+                            <a href="#" onclick="konfirmasi('{{ route('matakuliah.destroy', $matakuliah) }}')"
+                                class="btn btn-danger">Hapus</a>
+                        </td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
+    </div>
     <form action="" method="POST" id="deleteForm">
         @csrf
         @method('DELETE')
     </form>
-</body>
-<script>
-    function konfirmasi(href){
-        if(confirm('Apakah yakin?')){
-            document.getElementById('deleteForm').action = href
-            document.getElementById('deleteForm').submit()
+    <script>
+        function konfirmasi(href) {
+            if (confirm('Apakah yakin?')) {
+                document.getElementById('deleteForm').action = href
+                document.getElementById('deleteForm').submit()
+            }
         }
-    }
-</script>
-</html>
+    </script>
+@endsection
