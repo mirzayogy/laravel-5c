@@ -4,6 +4,8 @@
         <h1 class="h3 mb-0 text-gray-800">Matakuliah</h1>
         <a href="{{ route('matakuliah.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
             <i class="fas fa-plus-circle fa-sm text-white-50"></i> Tambah</a>
+        <a href="{{ route('matakuliah.report') }}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm" target="_blank">
+            <i class="fas fa-plus-circle fa-sm text-white-50"></i> Laporan</a>
     </div>
     {{-- {{ dd($banyak_matakuliah) }} --}}
     @if (session('berhasil'))
@@ -27,6 +29,7 @@
                             <th>Opsi</th>
                         </tr>
                     </thead>
+
                     <body>
                         @foreach ($banyak_matakuliah as $matakuliah)
                             <tr>

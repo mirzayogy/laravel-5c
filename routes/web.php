@@ -19,6 +19,8 @@ Route::get('/coba', function () {
 
 // Route::get('/matakuliah', [MatakuliahController::class, 'index']);
 Route::resource('matakuliah', MatakuliahController::class);
+Route::get('report',[MatakuliahController::class, 'report'])->name('matakuliah.report');
+
 Route::resource('prodi', ProdiController::class);
 
 Route::get('/dosen', function () {

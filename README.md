@@ -94,3 +94,8 @@ Create
     <button type="submit">Simpan</button>
 </form>
 
+==================
+membuat report
+
+composer require spipu/html2pdf
+
