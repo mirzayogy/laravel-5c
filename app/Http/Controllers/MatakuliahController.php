@@ -12,8 +12,9 @@ class MatakuliahController extends Controller
      */
     public function index()
     {
-        $banyak_matakuliah = Matakuliah::all();
-        // dd($banyak_matakuliah); // untuk melihat datanya
+        // $banyak_matakuliah = Matakuliah::all();
+        $banyak_matakuliah = Matakuliah::with('prodi')->get();
+        dd($banyak_matakuliah);
         return view(
             'matakuliah.index',
             [

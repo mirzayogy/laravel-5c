@@ -23,6 +23,7 @@
                             <th>ID</th>
                             <th>Kode MK</th>
                             <th>Nama</th>
+                            <th>Program Studi</th>
                             <th>Opsi</th>
                         </tr>
                     </thead>
@@ -32,6 +33,7 @@
                                 <td>{{ $matakuliah['id'] }}</td>
                                 <td>{{ $matakuliah['kode_mk'] }}</td>
                                 <td>{{ $matakuliah['nama'] }}</td>
+                                <td>{{ $matakuliah->prodi->nama_prodi }}</td>
                                 <td>
                                     <a href="{{ route('matakuliah.edit', $matakuliah) }}"
                                         class="btn btn-primary btn-sm btn-icon-split">
