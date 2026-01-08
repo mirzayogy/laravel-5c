@@ -12,7 +12,13 @@ class ProdiController extends Controller
      */
     public function index()
     {
-        //
+        $banyak_prodi = Prodi::all();
+        return view(
+            'prodi.index',
+            [
+                'banyak_prodi' => $banyak_prodi
+            ]
+        );
     }
 
     /**
@@ -20,9 +26,9 @@ class ProdiController extends Controller
      */
     public function create()
     {
-        //
-    }
+        return view('prodi.create');
 
+    }
     /**
      * Store a newly created resource in storage.
      */

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MatakuliahController;
+use App\Http\Controllers\ProdiController;
 use App\Models\Matakuliah;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,7 @@ Route::get('/coba', function () {
 
 // Route::get('/matakuliah', [MatakuliahController::class, 'index']);
 Route::resource('matakuliah', MatakuliahController::class);
+Route::resource('prodi', ProdiController::class);
 
 Route::get('/dosen', function () {
     return view('dosen.index');
